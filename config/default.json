@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://m001-student:m001-mongodb-basics@cluster0.spgb4.mongodb.net/First_ex_mongodb_university?retryWrites=true&w=majority",
+    "jwtSecret": "secreto"
+}

@@ -25,7 +25,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json(errors);
+      return res.status(200).json(errors);
     }
 
     const { email, password } = req.body;
@@ -33,11 +33,11 @@ router.post(
     try {
       let user = await User.findOne({ email });
       if (!user) {
-        return res.status(400).json({ msg: "Credenciales no válidas" });
+        return res.status(200).json({ msg: "Credenciales no válidas" });
       }
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        return res.status(400).json({ msg: "Credenciales no válidas" });
+        return res.status(200).json({ msg: "Credenciales no válidas" });
       }
       //Generar un token...
       const payload = { user: { id: user.id } };

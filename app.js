@@ -1,11 +1,12 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 
 //Conectamos a la DB
 connectDB();
-
+app.use(cors());
 //Middleware para recoger el JSON en el Body de la request
 app.use(express.json());
 // Definir las rutas
